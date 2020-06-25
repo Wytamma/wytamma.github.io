@@ -18,7 +18,7 @@ I used [P5.js](https://p5js.org/) to make an interactive application to understa
 
 <iframe width="600" height="405" src="https://wytamma.github.io/interactive-diagnostic-test-statistics/index.html" frameborder="0" allowfullscreen></iframe>
 
-Red circles are diseased individuals, and the plus indicates a positive test result. Full code can be found on [github](https://github.com/Wytamma/interactive-diagnostic-test-statistics).
+Red/green circles are diseased/healthy individuals, and the plus/minus indicates a positive/negative test result. Full code can be found on [github](https://github.com/Wytamma/interactive-diagnostic-test-statistics).
 
 ## Diagnostics 
 Sensitivity and specificity are intrinsic measures of performance and described how the results of a test compare to reality. The portion of results that are correctly identified as positives and negatives are know as the sensitivity (True Positive Rate) and specificity (False Positive Rate), respectively. While sensitivity and specificity are important concepts, they are not as valuable from a practical standpoint as the often-overlooked concepts of positive (PPV) and negative (NPV) predictive value. These values describe how believable the results of a diagnostic test are, and thus directly influence clinical decision making.
