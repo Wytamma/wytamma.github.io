@@ -1,5 +1,5 @@
 ---
-title: "Pyoinformatics"
+title: "pyoinformatics 🐍"
 date: 2020-06-25T00:00:00-00:00
 excerpt_separator: "<!--more-->"
 categories:
