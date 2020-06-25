@@ -10,7 +10,7 @@ tags:
   - bioinformatics
   - rosalind
 ---
-Introducing *pyoinformatics* a simple bioinformatics package.
+Introducing **pyoinformatics**, a simple bioinformatics package.
 
 `pip install pyoinformatics`
 
