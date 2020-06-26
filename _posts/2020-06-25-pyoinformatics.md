@@ -44,7 +44,7 @@ seq2 = Seq('ATC', 'Sequence 2')
 
 # Deploying
 
-I've never deployed a python package pypi, but it was surprisingly easy. I set up a CI/CD script using Github's actions to automatically test and deploy the code with every push to the repo. Because you can't upload the same version to the package to pypi, I had to auto-increment the version number with every push. It was simple to implement auto-increment version numbers in python `setup.py` file.
+I've never deployed a python package to pypi, but it was surprisingly easy. I set up a [CI/CD script](https://github.com/Wytamma/pyoinformatics/actions?query=workflow%3ACI%2FCD) using Github's actions to automatically test and deploy the code with every push to the repo. Because you can't upload the same version to the package to pypi, I had to auto-increment the version number with every push. It was simple to implement auto-increment version numbers in python's `setup.py` file.
 
 ```python
 r = requests.get("https://pypi.org/pypi/pyoinformatics/json")
@@ -54,7 +54,7 @@ if patch_version == "9":
     patch_version = "0"
     minor_version = str(int(version[1]) + 1)
     version[1] = minor_version
-version=".".join(version[:-1] + [patch_version]),
+version=".".join(version[:-1] + [patch_version])
 ```
 
 Be sure to check out pyoinfomatics in detail on [Github](https://github.com/Wytamma/pyoinformatics)!
