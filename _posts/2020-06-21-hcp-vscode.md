@@ -3,7 +3,7 @@ title: "Using VScode to access the HPC"
 date: 2020-08-03T00:00:00-00:00
 excerpt_separator: "<!--more-->"
 header:
-  image: assets/images/vscode-hpc.png
+  image: assets/images/remote.png
 categories:
   - blog
 tags:
@@ -24,18 +24,21 @@ An IDE is basically a file explore, a text editor, and terminal all in one. Ther
 [Download VScode](https://code.visualstudio.com/Download) and start to get a feel for how it works on you local machine. There's some very good [docs](https://code.visualstudio.com/docs/getstarted/introvideos) on how to get started. 
 
 
+Because it is open source VScode is easily extendable. VScode has an [extensive library of extensions](https://code.visualstudio.com/docs/editor/extension-gallery). One extension of note is [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) developed by Microsoft. This extension lets you connect VScode to a remote server (like the HPC) via SSH.
 
-Because it is open source VScode is easily extendable. VScode has a an [extensive library of extensions](https://code.visualstudio.com/docs/editor/extension-gallery). One extension of note is [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) developed by Microsoft. This extension lets you connect VScode to a remote server (like the HPC) via SSH.
+![Remote](/assets/images/remote.png)
 
-![ssh-readme](/assets/images/ssh-readme.gif)
-
-Use the Extensions tab to install Remote - SSH. Once it's installed a new tab (Remote Explore) appears on the side panel. Press the plus (+) in the Remote Explore tab to add a new SSH target for the HPC.
+Use the Extensions tab to install Remote - SSH. Once it's installed a new tab (Remote Explorer) appears on the side panel. Press the plus (+) in the Remote Explorer tab to add a new SSH target for the HPC.
 
 ![ssh-command](/assets/images/ssh-target.png)
-Only include -p 8822 if you are of campus. 
+*Only include `-p 8822` if you are of campus.*
 
-You'll be prompted for your HPC password; enter it and connect to the HPC. In the Explore tab you can now open folders and files on the HPC. Copying files to the HPC or back to you local machine is as easy as dragging and dropping them into the Explorer panel. If you open a new terminal (control+shift+`) you'll be dropped into a terminal on the HPC. 
+After you enter your SSH connection command enter your password and connect to the HPC. In the Explore tab you can now open folders and files on the HPC. Copying files to the HPC or back to you local machine is as easy as dragging and dropping them into the Explorer panel. If you open a new terminal (control+shift+`) you'll open a terminal on the HPC. 
 
-When you're finished you can simply save and close VScode. Any changes will be on the HPC. To reconnect, open VScode and go to the Remote Explore panel click on `zodiac.hpc.jcu.edu.au` to reconnect to the HPC. 
+![vscode-hpc](/assets/images/vscode-hpc.png)
+
+When you're finished you can simply save and close VScode. Any changes will be saved on the HPC. To reconnect to the HPC, open VScode and go to the Remote Explorer panel click on the folder icon next to `zodiac.hpc.jcu.edu.au`.
+
+![ssh-readme](/assets/images/ssh-readme.gif)
 
 For more information check out the Remote - SSH docs or [this helpful blog](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh). 
