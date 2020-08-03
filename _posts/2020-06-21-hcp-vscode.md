@@ -11,9 +11,9 @@ tags:
   - hpc
 ---
 
-One of the biggest hurdles to using a the high performance computer (HPC) at JCU is the user interface. Researchers have to ssh into the HPC via the command line. This, command line only, interface can be very different from the day to day computer experience researchers are used to. To ease the transition to remote computing on the HPC I suggest that researchers should use an integrated development environment (IDE) to access the HPC.
+One of the biggest hurdles to using a the high performance computer (HPC) at JCU is the user interface. Researchers have to ssh into the HPC via the command line. This command line only interface can be very different from the day to day computer experience researchers are used to. To ease the transition to remote computing, I suggest that researchers should use an integrated development environment (IDE) to access the HPC.
 
-An IDE is basically a file explore, a text editor, and terminal all in one. There are many types if IDEs, many the one most researchers would be used to is RStudio. While RStudio is an excellent IDE for R programming it is very specific. A more general IDE is visual studio code (VScode).
+An IDE is basically a file explore, a text editor, and terminal all in one. There are many types of IDEs, the IDE researchers would be most used to is RStudio. While RStudio is an excellent IDE for R programming it is very specific and thus not the ideal solution for everyone. A more general IDE is Visual Studio Code (VScode).
 
 > Worldwide, Visual Studio is the most popular IDE, Visual Studio Code grew the most in the last 5 years... <cite><a href="https://pypl.github.io/IDE.html"> Top IDE index</a></cite>
 
@@ -24,7 +24,7 @@ An IDE is basically a file explore, a text editor, and terminal all in one. Ther
 [Download VScode](https://code.visualstudio.com/Download) and start to get a feel for how it works on you local machine. There's some very good [docs](https://code.visualstudio.com/docs/getstarted/introvideos) on how to get started. 
 
 
-Because it is open source VScode is easily extendable. VScode has an [extensive library of extensions](https://code.visualstudio.com/docs/editor/extension-gallery). One extension of note is [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) developed by Microsoft. This extension lets you connect VScode to a remote server (like the HPC) via SSH.
+Because it is open source VScode is easily extendable. VScode has an [extensive library of extensions](https://code.visualstudio.com/docs/editor/extension-gallery). One extension of note is [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh), this is a core extension developed by Microsoft. This extension lets you connect VScode to a remote server (like the HPC) via SSH.
 
 ![Remote](/assets/images/remote.png)
 
