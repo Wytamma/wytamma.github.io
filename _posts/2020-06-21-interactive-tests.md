@@ -13,7 +13,7 @@ tags:
   - learning
   - webapp
 ---
-I used [P5.js](https://p5js.org/) to make an interactive application to understand diagnostic test statistics. I've been watching a lot of [coding train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw), and it has got me keen to do something with P5.js. My housemate has been learning about diagnostics as part of her veterinary degree, so I decided to combine the two and make an interactive application for understanding diagnostic statistics.
+I've been watching a lot of [coding train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw), and it has got me keen to do something with the javascipt library P5.js. My housemate has been learning about diagnostics as part of her veterinary degree, so I decided to combine the two and make an interactive application for understanding diagnostic statistics.
 <!--more-->
 
 <iframe width="600" height="405" src="https://wytamma.github.io/interactive-diagnostic-test-statistics/index.html" frameborder="0" allowfullscreen></iframe>
