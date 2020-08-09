@@ -24,7 +24,7 @@ An IDE is basically a file explore, a text editor, and terminal all in one. Ther
 [Download VScode](https://code.visualstudio.com/Download) and start to get a feel for how it works on you local machine. There's some very good [docs](https://code.visualstudio.com/docs/getstarted/introvideos) on how to get started. 
 
 
-Because it is open source VScode is easily extendable. VScode has an [extensive library of extensions](https://code.visualstudio.com/docs/editor/extension-gallery). One extension of note is [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh), this is a core extension developed by Microsoft. This extension lets you connect VScode to a remote server (like the HPC) via SSH.
+Because it is open source VScode is easily extendable. VScode has an [extensive library of extensions](https://code.visualstudio.com/docs/editor/extension-gallery). One extension of note is [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh), this is a core extension developed by Microsoft. The Remote - SSH extension lets you connect VScode to a remote server (like the HPC) via SSH.
 
 ![Remote](/assets/images/remote.png)
 
