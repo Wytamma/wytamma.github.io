@@ -21,9 +21,17 @@ I've been watching a lot of [coding train](https://www.youtube.com/channel/UCvjg
 Red/green circles are diseased/healthy individuals, and the plus/minus indicates a positive/negative test result. Full code can be found on [github](https://github.com/Wytamma/interactive-diagnostic-test-statistics).
 
 ## Diagnostics 
-Sensitivity and specificity are intrinsic measures of performance and described how the results of a test compare to reality. The portion of results that are correctly identified as positives and negatives are know as the sensitivity (True Positive Rate) and specificity (False Positive Rate), respectively. While sensitivity and specificity are important concepts, they are not as valuable from a practical standpoint as the often-overlooked concepts of positive (PPV) and negative (NPV) predictive value. These values describe how believable the results of a diagnostic test are, and thus directly influence clinical decision making.
+Sensitivity and specificity are intrinsic measures of performance and described how the results of a test compare to reality. The portion of results that are correctly identified as positives and negatives are know as the sensitivity (True Positive Rate) and specificity (False Positive Rate), respectively. 
 
-Unlike sensitivity and specificity, PPV and NPV change with prevalence. A test that has low sensitivity incorrectly identifies positive individuals as negatives (Type 2 error). This test will have a higher NPV (i.e. you can be confident in the negative results) when the prevalence is low. You are less likely to misclassify a positive as a negative because the majority of individuals in the population are disease-free anyway. When testing in a high prevalence population with a low sensitivity assay, the NPV is low because there are more positive individuals to be misclassified by the low sensitivity test. The opposite is true for specificity and PPV, i.e. when specificity and prevalence are low, so is PPV. A diagnostic test with low specificity incorrectly identifies negative individuals as positive (Type 1 error). When prevalence is low, there are more disease-free individuals in the population, and so a test with low specificity incorrectly classifies more individuals positive. Try playing with the sliders in the app above to get a feeling of how this works.
+While sensitivity and specificity are important concepts, they are not as valuable from a practical standpoint as the often-overlooked concepts of positive (PPV) and negative (NPV) predictive value. These values describe how believable the results of a diagnostic test are, and thus directly influence clinical decision making.
+
+Unlike sensitivity and specificity, PPV and NPV change with prevalence. A test that has low sensitivity incorrectly identifies positive individuals as negatives (Type 2 error). This test will have a higher NPV (i.e. you can be confident in the negative results) when the prevalence is low. You are less likely to misclassify a positive as a negative because the majority of individuals in the population are disease-free anyway. 
+
+When testing in a high prevalence population with a low sensitivity assay, the NPV is low because there are more positive individuals to be misclassified by the low sensitivity test. 
+
+The opposite is true for specificity and PPV, i.e. when specificity and prevalence are low, so is PPV. A diagnostic test with low specificity incorrectly identifies negative individuals as positive (Type 1 error). When prevalence is low, there are more disease-free individuals in the population, and so a test with low specificity incorrectly classifies more individuals positive. 
+
+Try playing with the sliders in the app above to get a feeling of how this works.
 
 This [wiki page](https://en.wikipedia.org/wiki/Sensitivity_and_specificity#Confusion_matrix) has more information on how these values are calculated and relate.
 
