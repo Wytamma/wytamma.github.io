@@ -21,7 +21,7 @@ I've been watching a lot of [coding train](https://www.youtube.com/channel/UCvjg
 Red/green circles are diseased/healthy individuals, and the plus/minus indicates a positive/negative test result. Full code can be found on [github](https://github.com/Wytamma/interactive-diagnostic-test-statistics).
 
 ## Diagnostics 
-Sensitivity and specificity are intrinsic measures of performance and described how the results of a test compare to reality. The portion of results that are correctly identified as positives and negatives are know as the sensitivity (True Positive Rate) and specificity (False Positive Rate), respectively. 
+Sensitivity and specificity are intrinsic measures of performance and described how the results of a test compare to reality. The portion of results that are correctly identified as positives and negatives are know as the sensitivity (True Positive Rate) and specificity (True Negative Rate), respectively. 
 
 While sensitivity and specificity are important concepts, they are not as valuable from a practical standpoint as the often-overlooked concepts of positive (PPV) and negative (NPV) predictive value. These values describe how believable the results of a diagnostic test are, and thus directly influence clinical decision making.
 
