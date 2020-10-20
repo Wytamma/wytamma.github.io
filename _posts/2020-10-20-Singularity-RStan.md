@@ -107,7 +107,7 @@ Singularity can be used to install isolated application containers on the HPC. Y
 Singularity commands to remember inculde:
 
 - singularity pull docker://`repository_name`  # download a container
-- singularity shell `container_image`.sif  # instervatie shell inside conatier
+- singularity shell `container_image`.sif  # interactive shell inside conatier
 - singularity exec `container_image`.sif `command`  # run a command in a container 
 
 Check out the [Singularity introduction](https://sylabs.io/guides/3.6/user-guide/introduction.html) for more information on using containers in your research. 
