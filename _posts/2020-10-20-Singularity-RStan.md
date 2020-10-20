@@ -106,7 +106,7 @@ Singularity can be used to install isolated application containers on the HPC. Y
 
 Singularity commands to remember inculde:
 
-- singularity pull docker://`repository_name`  # download a container
+- singularity pull docker://`repository_name`  # download a container from Dockerhub
 - singularity shell `container_image`.sif  # interactive shell inside conatier
 - singularity exec `container_image`.sif `command`  # run a command in a container 
 
