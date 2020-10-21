@@ -19,7 +19,7 @@ tags:
 
 To start, `ssh` to your `HOME` directory on the HPC. I wrote a [guide](https://blog.wytamma.com/blog/hcp-vscode/) for using VScode to make this process easy.
 
-Singularity can build containers from [duckerhub](https://hub.docker.com/) (a different container platform). The `bash` command below pulls an RStan docker container from Dockerhub and converts it to a singularity image format (.sif) container. The Dockerfile (i.e. recipe file) that generates this container can be found [here](https://hub.docker.com/r/jrnold/rstan/dockerfile).
+Singularity can build containers from [dockerhub](https://hub.docker.com/) (a different container platform). The `bash` command below pulls an RStan docker container from Dockerhub and converts it to a singularity image format (.sif) container. The Dockerfile (i.e. recipe file) that generates this container can be found [here](https://hub.docker.com/r/jrnold/rstan/dockerfile).
 
 ```bash
 singularity pull docker://jrnold/rstan
