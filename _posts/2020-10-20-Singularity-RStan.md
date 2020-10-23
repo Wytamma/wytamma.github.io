@@ -102,7 +102,7 @@ lp__      -207.64    0.02 0.66 -209.58 -207.81 -207.37 -207.21 -207.17   872
 
 ## Wrapping up
 
-Singularity can be used to install isolated application containers on the HPC. You can find other container images on [duckerhub](https://hub.docker.com/). 
+Singularity can be used to install isolated application containers on the HPC. You can find other container images on [dockerhub](https://hub.docker.com/). 
 
 Singularity commands to remember inculde:
 
