@@ -37,45 +37,46 @@ singularity shell rstan_latest.sif
 
 This will give you a `Singularity>` prompt "inside" the container. Try running `R` i.e. the command to get an interactive `R` prompt. Notice you don't need to run `load module R` as `R` is already installed inside this container. Inside the container is essentially a different computer - a container is like a lightweight virtual machine that shares components of the host operating system. For further reading, I suggest you look at the [Singularity introduction](https://sylabs.io/guides/3.6/user-guide/introduction.html).
 
-Back to the task at hand, running a RStan model. Exit out of the `Singularity>` prompt by typing `exit`. Make a `rstan.R` file and populate it with the following RStan model code (taken from this [blog post](https://baconzhou.github.io/post/r-stan-example/)). 
+Back to the task at hand, running a RStan model. Exit out of the `Singularity>` prompt by typing `exit`. Make a `rstan.R` file and populate it with the following RStan linear regression example code (taken from this [blog post](https://michaeldewittjr.com/resources/stan_linear_regression.html)). 
 
 ```R
 library(rstan)
 
-# Set the number of cores to use
+# set number of cores to use
 options(mc.cores = 4)
 
-linkage_code <- '
+# save models
+rstan_options(auto_write = TRUE)
+
+
+x <- rnorm(40, 10, 5)
+noise <- rnorm(40,0,1)
+y <- x*.5 + noise
+
+data <- list( x= x, y = y, N = length(x))
+
+
+stan_linear_regression <- '
 data {
-  int<lower=0> y[4];
+  int<lower=0> N;
+  vector[N] x;
+  vector[N] y;
 }
-
 parameters {
-  real<lower=0, upper=1> theta;
+  real alpha;
+  real beta;
+  real<lower=0> sigma;
 }
-
-transformed parameters {
-  vector[4] ytheta;
-  ytheta[1] = 0.5+theta/4;
-  ytheta[2] = 0.25-theta/4;
-  ytheta[3] = 0.25-theta/4;
-  ytheta[4] = theta/4;
-}
-
 model {
-  y ~ multinomial(ytheta);
+  y ~ normal(alpha + beta * x, sigma);
 }
 '
 
-y <- c(125, 18, 20, 34)
-dat <- list()
-dat$y <- y
+linear_regression <- stan_model(model_code = stan_linear_regression, model_name = "LinearRegression")
 
-model_obj <- stan_model(model_code = linkage_code, model_name = "GeneticLinkage")
+fit1 <- sampling(linear_regression, data = data, iter = 1000)
 
-fit <- sampling(model_obj, data = dat, iter = 1000, chains = 4) 
-
-print(fit)
+print(fit1)
 ```
 
 The singularity `exec` command is used to run a command within a container from outside the container. The `exec` command stands for execute e.g. execute the following command within the specified container. The bash command below tells singularity to execute the command `Rscript rstan.R` inside the `rstan_latest.sif` container.
@@ -84,20 +85,18 @@ The singularity `exec` command is used to run a command within a container from 
 singularity exec rstan_latest.sif Rscript rstan.R
 ```
 
-After running the command above the model should compile then run and produce the following output.
+After running the command above the model should compile then run and produce the following output. Note the beta (slope) parameter estimate is close to the real value of `0.5`.
 
 ```
-Inference for Stan model: GeneticLinkage.
+Inference for Stan model: LinearRegression.
 4 chains, each with iter=1000; warmup=500; thin=1; 
 post-warmup draws per chain=500, total post-warmup draws=2000.
 
-             mean se_mean   sd    2.5%     25%     50%     75%   97.5% n_eff
-theta        0.62    0.00 0.05    0.52    0.59    0.62    0.65    0.71   794
-ytheta[1]    0.66    0.00 0.01    0.63    0.65    0.66    0.66    0.68   794
-ytheta[2]    0.09    0.00 0.01    0.07    0.09    0.09    0.10    0.12   794
-ytheta[3]    0.09    0.00 0.01    0.07    0.09    0.09    0.10    0.12   794
-ytheta[4]    0.16    0.00 0.01    0.13    0.15    0.16    0.16    0.18   794
-lp__      -207.64    0.02 0.66 -209.58 -207.81 -207.37 -207.21 -207.17   872
+        mean se_mean   sd   2.5%    25%    50%    75%  97.5% n_eff Rhat
+alpha  -0.60    0.01 0.32  -1.23  -0.83  -0.60  -0.39   0.02   861 1.00
+beta    0.54    0.00 0.03   0.48   0.52   0.54   0.55   0.59   869 1.00
+sigma   0.90    0.00 0.11   0.72   0.83   0.89   0.97   1.16   694 1.01
+lp__  -14.97    0.06 1.27 -18.35 -15.55 -14.64 -14.06 -13.49   407 1.01
 ```
 
 ## Wrapping up
