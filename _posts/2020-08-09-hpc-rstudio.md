@@ -19,9 +19,7 @@ This post details how to get RStudio server running on the compute nodes of the 
 
 Singularity in a container platform. Container platforms allow you to create and run containers that package up pieces of software in a way that is portable and reproducible. 
 
-You should have some idea of how to use singularity to follow this guide. I have a post about using containerised applications on the HPC [here](https://blog.wytamma.com/blog/Singularity-RStan/)
-
-If you're not sure where to start, work though the [singularity introduction](https://sylabs.io/guides/3.6/user-guide/introduction.html)
+You should have some idea of how to use singularity to follow this guide. I have a post about using containerised applications on the HPC [here](https://blog.wytamma.com/blog/Singularity-RStan/). If you're not sure where to start, work though the [singularity introduction](https://sylabs.io/guides/3.6/user-guide/introduction.html)
 
 ## Instructions
 
