@@ -48,13 +48,11 @@ options(mc.cores = 4)
 # save models
 rstan_options(auto_write = TRUE)
 
-
 x <- rnorm(40, 10, 5)
 noise <- rnorm(40,0,1)
 y <- x*.5 + noise
 
 data <- list( x= x, y = y, N = length(x))
-
 
 stan_linear_regression <- '
 data {
