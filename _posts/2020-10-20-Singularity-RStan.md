@@ -1,5 +1,5 @@
 ---
-title: "Running RStan in a singularity container on the HPC "
+title: "Containerised applications on the HPC (RStan example)"
 date: 2020-10-10T00:00:00-00:00
 excerpt_separator: "<!--more-->"
 header:
