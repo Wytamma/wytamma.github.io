@@ -25,7 +25,7 @@ If you're not sure where to start, work though the [singularity introduction](ht
 
 ## Instructions
 
-Clone this repo into your home directory on the HPC.
+Clone [this](https://github.com/Wytamma/rstudio-hpc) repo into your home directory on the HPC. The repo contains the `bash` scripts needed to run Rstudio on the HPC.  
 
 ```bash
 git clone https://github.com/Wytamma/rstudio-hpc.git && cd rstudio-hpc
