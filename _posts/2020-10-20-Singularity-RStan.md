@@ -97,6 +97,28 @@ sigma   0.90    0.00 0.11   0.72   0.83   0.89   0.97   1.16   694 1.01
 lp__  -14.97    0.06 1.27 -18.35 -15.55 -14.64 -14.06 -13.49   407 1.01
 ```
 
+## Submitting to qsub
+
+Finally, to take full advantage of Singularity on the JCU HPC we need to run our code as a job on the compute nodes using `qsub`. 
+
+Create a PBS script called `rstan_PBS.sh` with the following content.
+
+```bash
+#!/bin/bash
+#PBS -N RStan
+#PBS -l walltime=00:30:00
+#PBS -l select=1:ncpus=4:mem=8gb
+
+# Move to working dir
+cd $PBS_O_WORKDIR
+
+# The bash command below tells singularity to execute the command
+# `Rscript rstan.R` inside the `rstan_latest.sif` container
+singularity exec rstan_latest.sif Rscript rstan.R
+```
+
+We can now submit our script to the queue using the bash command `qsub rstan_PBS.sh`. Once our job completes the output will appear in the current directory named something like `RStan.o1744909`. 
+
 ## Wrapping up
 
 Singularity can be used to install isolated application containers on the HPC. You can find other container images on [dockerhub](https://hub.docker.com/). 
