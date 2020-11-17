@@ -16,7 +16,7 @@ tags:
 I've been watching a lot of [coding train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw), and it has got me keen to do something with the javascipt library P5.js. My housemate has been learning about diagnostics as part of her veterinary degree, so I decided to combine the two and make an interactive application for understanding diagnostic statistics.
 <!--more-->
 
-<iframe width="600" height="405" src="https://wytamma.github.io/interactive-diagnostic-test-statistics/index.html" frameborder="0" allowfullscreen></iframe>
+<iframe width="600" height="405" src="https://blog.wytamma.com/interactive-diagnostic-test-statistics/index.html" frameborder="0" allowfullscreen></iframe>
 
 Red/green circles are diseased/healthy individuals, and the plus/minus indicates a positive/negative test result. Full code can be found on [github](https://github.com/Wytamma/interactive-diagnostic-test-statistics).
 
