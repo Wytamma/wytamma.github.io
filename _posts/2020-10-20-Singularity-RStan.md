@@ -121,12 +121,17 @@ We can now submit our script to the queue using the bash command `qsub rstan_PBS
 
 ## Wrapping up
 
-Singularity can be used to install isolated application containers on the HPC. You can find other container images on [dockerhub](https://hub.docker.com/). 
+Singularity can be used to install isolated application containers on the HPC. You can find other container images on [dockerhub](https://hub.docker.com/). Check out the [Singularity introduction](https://sylabs.io/guides/3.6/user-guide/introduction.html) for more information on using containers in your research. 
 
-Singularity commands to remember inculde:
+### Singularity commands to remember
 
-- singularity pull docker://`repository_name`  # download a container from Dockerhub
-- singularity shell `container_image`.sif  # interactive shell inside conatier
-- singularity exec `container_image`.sif `command`  # run a command in a container 
-
-Check out the [Singularity introduction](https://sylabs.io/guides/3.6/user-guide/introduction.html) for more information on using containers in your research. 
+Download a container from a given URI:  
+`singularity pull [pull options...] [output file] <URI>`  
+Download a container from Dockerhub:  
+`singularity pull docker://<repository_name>`  
+Start an interactive shell inside container:  
+`singularity shell <container>`  
+Run a command within a container:  
+`singularity exec [exec options...] <container> <command>`  
+Clean the local cache:  
+`singularity cache clean`
