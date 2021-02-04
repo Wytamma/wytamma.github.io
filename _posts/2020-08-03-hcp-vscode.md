@@ -29,12 +29,12 @@ Because it is open source VScode is easily extendable. VScode has an [extensive 
 
 ![Remote](/assets/images/remote.png)
 
-Use the Extensions tab to install *Remote - SSH*. Once it's installed a new tab (Remote Explorer) appears on the side panel. Press the plus (+) in the Remote Explorer tab to add a new `ssh` target for the HPC.
+Use the Extensions tab to install *Remote - SSH*. Once it's installed a new tab (*Remote Explorer*) appears on the side panel. Press the plus (+) in the Remote Explorer tab to add a new `ssh` target for the HPC.
 
 ![ssh-command](/assets/images/ssh-target.png)
 *Only include `-p 8822` if you are off campus.*
 
-After you enter your SSH connection command enter your password and connect to the HPC (this will take a little while the first time you connect). In the *Explorer* panel you can open folders and files that are on the HPC. Copying files to the HPC or back to you local machine is as easy as dragging and dropping them into the Explorer panel. If you open a new terminal (control+shift+`) you'll open a bash terminal on the HPC. 
+After you enter your SSH connection command enter your password and connect to the HPC (this will take a little while the first time you connect). In the *Explorer* panel you can open folders and files that are on the HPC. Copying files to the HPC or back to you local machine is as easy as dragging and dropping them into the *Explorer* panel. If you open a new terminal (control+shift+`) you'll open a bash terminal on the HPC. 
 
 ![vscode-hpc](/assets/images/vscode-hpc.png)
 
