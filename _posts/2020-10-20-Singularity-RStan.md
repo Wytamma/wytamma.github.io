@@ -123,6 +123,8 @@ We can now submit our script to the queue using the bash command `qsub rstan_PBS
 
 Singularity can be used to install isolated application containers on the HPC. You can find other container images on [dockerhub](https://hub.docker.com/). Check out the [Singularity introduction](https://sylabs.io/guides/3.6/user-guide/introduction.html) for more information on using containers in your research. 
 
+Here's a link to some [slides](https://docs.google.com/presentation/d/1ei2_ahfawYjzhBcF3gPhEpur1X4S_6a2vpO8ik-uY8w/edit?usp=sharing) on this topic.
+
 ### Singularity commands to remember
 
 Download a container from a given URI:  
