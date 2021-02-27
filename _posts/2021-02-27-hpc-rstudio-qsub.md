@@ -26,7 +26,7 @@ The solution is to wrap the PBS commands in an `ssh` command. When we want to ex
 
 The fake `qsub` command sends an `ssh` command out of the container before calling the real `qsub` that submits the user defined code back into the queue to run of a different (or the same) compute node. Finally, the results are then read back into the starting container via the shared file system. 
 
-![qsub-hpc-rstudio](/assets/images/qsub-hpc-rstudio.png)
+![qsub-hpc-rstudio](/assets/images/qsub-hpc-rstudio-flow.png)
 
 ## Calling `qsub` from `bash`
 
