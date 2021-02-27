@@ -60,7 +60,7 @@ We can steam line the process by piping the commands directly into `qsub`.
 # submit to qsub using pipe / redirect output to current dir
 echo "echo \"Hello World\"" | qsub -o $(pwd)
 ```
-```
+```bash
 >>> 1579439.jobmgr1
 ```
 ## Calling `qsub` from `R`
@@ -77,7 +77,7 @@ qsub_id <-
   system(qsub_cmd, intern = TRUE)  # call bash command with R
 qsub_id
 ```
-```
+```r
 >>> [1] "1579441.jobmgr1"
 ```
 
@@ -115,7 +115,7 @@ rm_outfile <- file.remove(outfile)
 
 output
 ```
-```
+```r
 >>> [1] "hello" "world" "hello" "world"
 ```
 ## writing a `R` `qsub` function
@@ -153,7 +153,7 @@ This function provides a simple interface for submitting jobs from within RStudi
 cmd <- "echo hello world"
 qsub(cmd)
 ```
-```
+```r
 >>> [1] "hello world"
 ```
 
@@ -179,7 +179,7 @@ system.time({
 })
 # 
 ```
-```
+```r
 >>> user  system elapsed 
 0.109   0.108  18.677 
 ```
@@ -235,7 +235,7 @@ res <- mccollect(list(pid1, pid2, pid3))
 })
 res
 ```
-```bash
+```r
 >>> user  system elapsed 
 0.094   0.119   5.995 
 $`194100`
@@ -338,7 +338,7 @@ res1
 res2
 res3
 ```
-```
+```r
 >>> [1] "finished"
 [1] "finished"
 [1] "finished"
@@ -384,7 +384,7 @@ fut3 <- future_qsub(cmd)
 
 fut1
 ```
-```
+```r
 >>> MultisessionFuture:
 Label: ‘<none>’
 Expression:
@@ -425,7 +425,7 @@ res1
 res2
 res3
 ```
-```
+```r
 >>> [1] "finished"
 [1] "finished"
 [1] "finished"
