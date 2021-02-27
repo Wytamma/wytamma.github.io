@@ -45,7 +45,7 @@ qsub -o $(pwd) $(pwd)/myscript.sh
 >>> 1579438.jobmgr1
 ```
 
-The `qsub` command used here is actually the ssh wrapper script from above. It is taking the arguments and send them to the real `qsub` via `ssh`. Because we redirect output to current directory we can read in the results once the script runs in the queue. 
+The `qsub` command used here is actually the ssh wrapper script from above. The fake `qsub` is taking the arguments and sending them to the real `qsub` via `ssh`. Because we redirect output to current directory we can read in the results once the script finishes running in the queue. 
 
 ```bash
 cat 1579438.jobmgr1.OU
@@ -65,27 +65,29 @@ echo "echo \"Hello World\"" | qsub -o $(pwd)
 ```
 ## Calling `qsub` from `R`
 
-The code above must be run in a bash chunk in an RStudio markdown files. However, we can use `R` to submit `qsub` jobs and thus runt hem from regular `R` chunks.
+The code above must be run in a bash chunk in an RStudio markdown files. However, we can use `R` to submit `qsub` jobs and thus run them from regular `R` chunks.
 
 ```r
+# change to current dir and run `ls`
 cd_current_dir <- paste("cd", getwd())
-cmd <-
-  paste(cd_current_dir, 'ls', sep = ' && ')  # change to current dir and run `ls`
+cmd <- paste(cd_current_dir, 'ls', sep = ' && ')  
+
 # the command defined above is inserted into the submission pipeline code
 qsub_cmd <- sprintf('echo "%s" | qsub -o $(pwd)', cmd)
-qsub_id <-
-  system(qsub_cmd, intern = TRUE)  # call bash command with R
+
+ # call bash command with R
+qsub_id <- system(qsub_cmd, intern = TRUE) 
 qsub_id
 ```
 ```r
 >>> [1] "1579441.jobmgr1"
 ```
 
-Now we can submit jobs, but we still need to read the results back into R.
+Now we can submit jobs, but we still need to read the results back into `R`.
 
 ## reading results into `R`
 
-We can read the job output file into R using the `readLines` function. However, because the output file is not create until the job completes we must wait for it to be created first.
+We can read the job output file into `R` using the `readLines` function. However, because the output file is not create until the job completes we must wait for it to be created first.
 
 ```r
 cmd <- "
@@ -157,7 +159,7 @@ qsub(cmd)
 >>> [1] "hello world"
 ```
 
-The qsub function has a `qsub_prams` argument. This means that we can request  resources on a per-function call basis and the request will be passed to the real qsub command.
+The qsub function has a `qsub_prams` argument. This means that we can request  resources on a per-function call basis and the request will be passed to the real `qsub` command.
 
 ```r
 qsub(cmd, qsub_prams="-l select=1:ncpus=4:mem=8gb")
@@ -188,7 +190,7 @@ To take full advantage of the HPC we want each command to run in parallel.
 
 ## Running `qsub` in background jobs with RStudio
 
-There are a few ways to run code at the "same" time in `R`. One example is using the background jobs feature. We do this by saving the qsub function we want to run into a RScript file and then running that file as a job. Using the importEnv and  and exportEnv args we can make sure our job runs with our environment and that the results are automatically added once the job completes.
+There are a few ways to run code at the "same" time in `R`. One example is using the background jobs feature. We do this by saving the qsub function we want to run into a RScript file and then running that file as a job. Using the `importEnv` and `exportEnv` args we can make sure our job runs with our environment and that the results are automatically added once the job completes.
 
 ```bash
 # make a R script
@@ -202,7 +204,7 @@ job_id <- rstudioapi::jobRunScript(path = "qsub_job_script.R", importEnv = TRUE,
 
 ## Running `qsub` in background jobs with `parallel`
 
-A more practical solution to the blocking problem is to use the `parallel` library. With `parallel::mcparallel` you can evaluate an R expression asynchronously in a separate process.
+A more practical solution to the blocking problem is to use the `parallel` library. With `parallel::mcparallel` you can evaluate an `R` expression asynchronously in a separate process.
 
 ```r
 library(parallel)
@@ -248,7 +250,7 @@ $`194113`
 [1] "finished"
 ```
 
-## parallel qsub function
+## Parallel qsub function
 
 We can improve the qsub function so that mcparallel will be called each time. The new qsub function will not block until the results are collected.  
 
@@ -310,7 +312,7 @@ library(future)
 plan(multisession)
 ```
 
-The qsub function call can be wrapped in implicit futures (v %<-% {}), they will only block when the value is queried.
+The qsub function call can be wrapped in implicit futures (`v %<-% {}`), they will only block when the value is queried.
 
 ```r
 cmd <- "
@@ -433,4 +435,4 @@ res3
 
 ## Conclusions
 
-We can now submit qsub scripts to the compute nodes from within our R code running in an RStudio session on the HPC. However, The way we are using qsub here is not optimal. We are submitting `bash` to the HPC but ideally we want to submit `R` code. There are several solutions to this problem that I will elaborate in a future post (templates, container proxies, batchtools). For now, check out [future.batchtools](https://github.com/HenrikBengtsson/future.batchtools). Using future.batchtools you can seamlessly run R code on compute nodes without the hacky bash workaround found above. This allows you to do things like render plots in a job.
+We have seen a variety of methods to submit qsub scripts to the compute nodes from within our RStudio session on the HPC. However, The way we are submitting jobs here is still not optimal. We are submitting `bash` commands to `qsub` that then run on HPC, but ideally we want to submit `R` code. There are several solutions to this problem that I will elaborate in a future post (e.g. templates, container proxies, batchtools). For now, check out [future.batchtools](https://github.com/HenrikBengtsson/future.batchtools). Using future.batchtools you can seamlessly run R code on compute nodes without the hacky bash workaround found above. This allows you to do things like render plots in a job.
