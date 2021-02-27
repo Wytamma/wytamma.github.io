@@ -12,7 +12,7 @@ tags:
 
 In a [previous post](https://blog.wytamma.com/blog/hpc-rstudio/), I explained how to run RStudio on the compute nodes of the HPC. I am going to continue on this theme and explore some of the interesting side effects of running RStudio in a High Performance Computing environment.
 
-This post assumes you are running all of the following code in an RStudio container on the HPC. Specifically, you must be using a container image that has the PBS commands wrapped in ssh (explained below).
+This post assumes you are running all of the following code in an RStudio container on the HPC. Specifically, you must be using a container image that has the PBS commands wrapped in `ssh` commands (explained below).
 
 ## Motivation
 
