@@ -1,5 +1,5 @@
 ---
-title: "Integrating qsub with RStudio on the HPC"
+title: "Integrating qsub with RStudio"
 date: 2021-02-27T00:00:00-00:00
 excerpt_separator: "<!--more-->"
 categories:
