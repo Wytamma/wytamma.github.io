@@ -22,7 +22,7 @@ Typical when we are working on the HPC we request resources per job and submit t
 
 To make this possible we need to submit jobs to the queue using `qsub` from inside the container. However, there is one problem, `qsub` (and the other PBS commands) are not accessible from within the container. We need a way to talk to the PBS server from within the RStudio container so we can submit jobs to the queue with variable resources. 
 
-The solution is to wrap the PBS commands in an `ssh` command. That way, when we want to execute `qsub` from within the container the command is actually ssh'd out of the container. This code is already in the [RStudio container recipe file](https://github.com/Wytamma/rstudio-hpc/blob/master/rstudio-hpc.def). When the container is built a fake `qsub` command is created within the container for your use.
+The solution is to wrap the PBS commands in an `ssh` command. That way, when we want to execute `qsub` from within the container the command is actually ssh'd out of the container. This code is already in the [RStudio container recipe file](https://github.com/Wytamma/rstudio-hpc/blob/master/rstudio-hpc.def#L19). When the container is built a fake `qsub` command is created within the container for your use.
 
 The fake `qsub` command sends an `ssh` command out of the container before calling the real `qsub` that submits the user defined code back into the queue to run of a different (or the same) compute node. Finally, the results are then read back into the starting container via the shared file system. 
 
