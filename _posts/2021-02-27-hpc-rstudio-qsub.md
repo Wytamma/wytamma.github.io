@@ -42,7 +42,7 @@ add_host_command /opt/pbs/bin/qsub qsub
 
 The fake qsub command sends an `ssh` command out of the container before calling the real `qsub` that submits the user defined code back into the queue to run of a different (or the same) compute node. Finally, the results are then read back into the starting container via the shared file system. 
 
-![vscode-hpc](/assets/images/qsub-hpc-rstudio.png)
+![qsub-hpc-rstudio](/assets/images/qsub-hpc-rstudio.png)
 
 ## Calling `qsub` from `bash`
 
