@@ -54,7 +54,7 @@ cat 1579438.jobmgr1.OU
 >>> Hello World
 ```
 
-We can steam line the process by piping the commands directly into `qsub`. 
+We can streamline the process by piping the commands directly into `qsub`. 
 
 ```bash
 # submit to qsub using pipe / redirect output to current dir
@@ -65,7 +65,7 @@ echo "echo \"Hello World\"" | qsub -o $(pwd)
 ```
 ## Calling `qsub` from `R`
 
-The code above must be run in a bash chunk in an RStudio markdown files. However, we can use `R` to submit `qsub` jobs and thus run them from regular `R` chunks.
+The code above must be run in a `bash` chunk in an RStudio markdown files. However, we can use `R` to submit `qsub` jobs and thus run them from regular `R` chunks.
 
 ```r
 # change to current dir and run `ls`
@@ -122,7 +122,7 @@ output
 ```
 ## writing a `R` `qsub` function
 
-The above code an be generalised into a function. This qsub function allows you to wrap code that should be passed to the `qsub` command and run on a compute node.
+The above code can be generalised into a function. This qsub function allows you to wrap code that should be passed to the `qsub` command and run on a compute node.
 
 ```r
 qsub <-
