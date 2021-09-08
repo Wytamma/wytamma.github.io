@@ -57,7 +57,7 @@ plugins:
 author:
   name   : "Wytamma Wirth"
   avatar : "/assets/images/profile.jpg"
-  bio    : "PhD student @jcu enjoying the little things like antibodies, ion channels, and pip installs."
+  bio    : "Postdoc @unimelb enjoying the little things like antibodies, ion channels, and pip installs."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
