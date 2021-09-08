@@ -11,7 +11,7 @@ tags:
   - hpc
 ---
 
-One of the biggest hurdles to using a high performance computer (HPC) is the user interface. Researchers have to `ssh` into the HPC via the command line. This command-line-only interface can be very different from the day-to-day computer experience researchers are used to. 
+One of the biggest hurdles to using a high performance computer (HPC) is the user interface. Researchers have to `ssh` into the HPC via the command line. This command-line-only interface can be very different from the day-to-day computer experience of researchers. 
 
 To ease the transition to remote computing, I suggest that researchers use an integrated development environment (IDE) to access the HPC.
 
