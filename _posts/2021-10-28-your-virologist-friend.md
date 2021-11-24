@@ -1,6 +1,6 @@
 ---
 title: "Your Virologist Friend"
-date: 2020-09-22T00:00:00-00:00
+date: 2020-10-28T00:00:00-00:00
 excerpt_separator: "<!--more-->"
 categories:
   - blog
