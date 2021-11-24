@@ -41,6 +41,7 @@ In this episode of This Is Not News I sit down with Wytamma Wirth who is a curre
 
 In this episode we discuss what is known about the Novel Coronavirus, the race to find a Vaccine, possible options till we find a Vaccine, how the virus causes its symptoms, mutations in the virus plus more.
 
+<iframe src="https://www.youtube.com/embed/SD9sZ8AjUnQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## 3rd of March 2020 - Pandemic
 
