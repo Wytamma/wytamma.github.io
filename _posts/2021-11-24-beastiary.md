@@ -1,14 +1,15 @@
 ---
 title: "🐙🐁 BEASTIARY 🐁🐙"
-date: 2020-09-22T00:00:00-00:00
+date: 2021-11-24T00:00:00-00:00
 excerpt_separator: "<!--more-->"
 header:
   image: assets/images/beastiary_logo.png
 categories:
   - project
 tags:
-  - Python
   - package
+  - statistics
+  - HPC
 ---
 
 Introducing [Beastiary](https://beastiary.wytamma.com/), a package designed for visualising and analysing MCMC trace files generated from Bayesian phylogenetic analyses.
