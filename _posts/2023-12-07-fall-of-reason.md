@@ -12,7 +12,7 @@ tags:
 ---
 
 
-The [ruliad](https://writings.stephenwolfram.com/2021/11/the-concept-of-the-ruliad/) is everything that is computationally possible. Proposed by Stephen Wolfram, represents the ultimate frontier of computational possibilities. It is the limit of following all possible paths of computation in all possible ways. The idea of a ruliad humbles thinkers faced with infinite possibilities, it is like reading your future conversations in the [Library of Babel](https://libraryofbabel.info/bookmark.cgi?hvbybyuyauuxwpmtuwfowuobe42).
+The [ruliad](https://writings.stephenwolfram.com/2021/11/the-concept-of-the-ruliad/) is everything that is computationally possible. It is the limit of following all possible paths of computation in all possible ways. The idea of a ruliad humbles thinkers faced with infinite possibilities, it is like reading your future conversations in the [Library of Babel](https://libraryofbabel.info/bookmark.cgi?hvbybyuyauuxwpmtuwfowuobe42).
 
 <!--more-->
 
