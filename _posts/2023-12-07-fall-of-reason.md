@@ -3,7 +3,7 @@ title: "The Fall of Reason: Navigating an AI-Dominated World of Thought"
 date: 2023-12-07T00:00:00-00:00
 excerpt_separator: "<!--more-->"
 header:
-  image: assets/images/fall_or_reason.png
+  image: assets/images/fall-of-reason.png
 categories:
   - blog
 tags:
@@ -22,7 +22,7 @@ All solutions to all problems already exist. Finding solutions in domains like m
 
 ## The Evolution of Computational Thinkers
 
-Computational thinkers will have to abstract themselves from direct computational thought as they will not be competitive with the performance of automated systems.Their role will shift from being direct computational problem-solvers to managers and directors of these sophisticated systems, guiding them to address complex challenges. This transition necessitates a new skill set focused more on abstract thinking, system management, and problem formulation than on direct computation.
+Computational thinkers will have to abstract themselves from direct computational thought as they will not be competitive with the performance of automated systems. Their role will shift from being direct computational problem-solvers to managers and directors of these sophisticated systems, guiding them to address complex challenges. This transition necessitates a new skill set focused more on abstract thinking, system management, and problem formulation than on direct computation.
 
 ## The Socio-Computational Divide: Access and Impact
 
