@@ -18,7 +18,7 @@ The [ruliad](https://writings.stephenwolfram.com/2021/11/the-concept-of-the-ruli
 
 ## The Infinite Solutions within the Ruliad
 
-All solutions to all problems already exist. Finding solutions in domains like mathematics and computational science becomes a matter of navigating through this immense space efficiently. Automated search strategies, leveraging self-consistency, logical reasoning, and rigorous testing, are perfectly suited for this task. But what does this mean for computational thinkers and the broader society?
+All solutions to all problems already exist. Discovering solutions in domains like mathematics and computational science becomes a matter of navigating through this immense space efficiently. Automated search strategies, leveraging self-consistency, logical reasoning, and rigorous testing, are perfectly suited for this task. But what does this mean for computational thinkers and the broader society?
 
 ## The Evolution of Computational Thinkers
 
