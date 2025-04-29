@@ -9,88 +9,83 @@ tags:
   - Unimelb
 ---
 
-I've written a few different [posts](https://blog.wytamma.com/blog/hpc-rstudio/) and [tutorials](https://blog.wytamma.com/remote-computing-bioinfo-clinic/#rstudio-server) about how to run RStudio on the of a HPC using RStudio Server. In this post I'll detail the process specifically for the Unimelb Spartan HPC.
+I've written a few different [posts](https://blog.wytamma.com/blog/hpc-rstudio/) and [tutorials](https://blog.wytamma.com/remote-computing-bioinfo-clinic/#rstudio-server) about how to run RStudio on an HPC using RStudio Server. In this post, I'll detail the process specifically for the Unimelb Spartan HPC.
 
-## RStudio on Spartan
+Once you have RStudio running on the Unimelb HPC, you can perform interactive analysis with Spartan's vast compute resources.
 
-This post details how to get RStudio server running on the compute nodes of the Unimelb Spartan HPC. For an old (out of date) post about JCU's HPC see [here](https://blog.wytamma.com/blog/hpc-rstudio/). Once you have RStudio running on the HPC you can perform interactive analysis with large compute resources.
+## Containers
 
-## Containers 
+Container platforms (Docker, Apptainer—previously known as Singularity, etc.) allow you to create and run containers that package up software in a way that is portable and reproducible.
 
-Container platforms (docker, singularity, etc.) allow you to create and run containers that package up pieces of software in a way that is portable and reproducible.
-
-The Unimelb Spartan HPC uses [Apptainer](https://dashboard.hpc.unimelb.edu.au/software/containers) previously Singularity to run containers. This allows you to run RStudio in a container on the compute nodes while maintaining the security of the host system.
-
+The Unimelb Spartan HPC uses [Apptainer](https://dashboard.hpc.unimelb.edu.au/software/containers) to run containers. This lets you run RStudio in a container on the compute nodes while maintaining the security of the host system.
 
 ## Setup (once)
 
-Start by `ssh`ing to the remote server (hint use VScode remote extension) and create a containers directory.
-
-```bash
-mkdir -p $HOME/containers/rstudio/
-```
-
-Download the latest tidyverse container and save it in singularity image format (`.sif`) at $HOME/containers/rstudio/tidyverse_latest.sif:
-```bash
-singularity pull $HOME/containers/rstudio/tidyverse_latest.sif docker://rocker/tidyverse:latest
-```
-
-Create a rstudio script and save is in you $PATH e.g. `$HOME/.local/bin/rstudio`. This is the script that will run the RStudio server. The script should look like this:
-
-You can download the script from [here](https://gist.github.com/Wytamma/4d5a8f763aa602deaee0bfbd64d1a3ae). Or use the following command to create the script:
-
-```bash
-wget -O $HOME/containers/rstudio/rstudio.job https://gist.githubusercontent.com/Wytamma/4d5a8f763aa602deaee0bfbd64d1a3ae/raw/e08527234b5d13c3a6bf65c7f1c3aa72612d36ce/rstudio.spartan.job
-```
-
-Create an a submission script to run the RStudio server. This script will be used to submit a job to the HPC. You can use the following command to create the script:
-
-```bash
-wget -O $HOME/.local/bin/rstudio https://gist.githubusercontent.com/Wytamma/4d5a8f763aa602deaee0bfbd64d1a3ae/raw/3e996c64b79c864b8e11984b8e01c053f7303012/rstudio.spartan.submit
-```
+1. SSH into the login node (hint: use the VS Code Remote extension) and create a containers directory:
 
 
-Make the script executable:
-```bash
-chmod u+x $HOME/.local/bin/rstudio
-```
+    ```bash
+    mkdir -p $HOME/containers/rstudio/
+    ```
 
-You should now be able to run the script:
+2. Download the latest tidyverse container in Singularity image format (`.sif`) to your new directory:
+
+    ```bash
+    singularity pull \
+      $HOME/containers/rstudio/tidyverse_latest.sif \
+      docker://rocker/tidyverse:latest
+    ```
+
+3. Create the RStudio “job” script and make it executable:
+
+    ```bash
+    wget -O $HOME/containers/rstudio/rstudio.spartan.job \
+      https://gist.githubusercontent.com/Wytamma/4d5a8f763aa602deaee0bfbd64d1a3ae/raw/e08527234b5d13c3a6bf65c7f1c3aa72612d36ce/rstudio.spartan.job
+
+    chmod u+x $HOME/containers/rstudio/rstudio.spartan.job
+    ```
+
+4. Download the submission wrapper into your \$PATH (e.g. `\$HOME/.local/bin/rstudio`) and make it executable:
+
+    ```bash
+    wget -O $HOME/.local/bin/rstudio \
+      https://gist.githubusercontent.com/Wytamma/4d5a8f763aa602deaee0bfbd64d1a3ae/raw/3e996c64b79c864b8e11984b8e01c053f7303012/rstudio.spartan.submit
+
+    chmod u+x $HOME/.local/bin/rstudio
+    ```
+
+You should now be able to run:
+
 ```bash
 rstudio --help
 ```
 
 ## Run RStudio
 
-To run RStudio you need to submit a job to the HPC. You can do this by running the following command:
+Submit a job to start RStudio on a compute node:
 
 ```bash
 rstudio
 ```
 
-Use the `--help` flag to see the options available. The default options will run RStudio on the first available compute node with 4 cores and 16GB of RAM. You can change the number of cores and RAM by using the `--cpus` and `--mem` flags.
-
-For example, to run RStudio with 8 cores and 32GB of RAM you can use the following command:
+By default, it requests 4 cores and 16 GB of RAM. To customize:
 
 ```bash
 rstudio --cpus 8 --mem 32G
 ```
 
-This will submit a job to the HPC and start RStudio on the first available compute node with 8 cores and 32GB of RAM. You can then access RStudio by following the instructions in the in the job log file. The log file will be saved in the current working directory and will be named `rstudio.<job_id>.out`. 
-
-The log file will look something like the following:
+Once the job starts, you’ll see instructions in the job log file named `rstudio.<job_id>.out`. It will include something like:
 
 ```bash
-
-1. SSH tunnel from your workstation (log out of spartan) using the following command:
+1. SSH tunnel from your workstation (after logging out of Spartan) using:
 
    ssh -N -L 8787:spartan-bm004:45737 wytamma@spartan.hpc.unimelb.edu.au
 
-   and point your web browser to http://localhost:8787
+   Then point your browser to http://localhost:8787
 
-2. log in to RStudio Server using the following credentials:
+2. Log in to RStudio Server with:
 
-   user: wytamma
+   user: wytamma  
    password: 5TtKzC06G4GCAjvgjkNP
 
 When done using RStudio Server, terminate the job by:
@@ -101,8 +96,8 @@ When done using RStudio Server, terminate the job by:
       scancel -f 8936310
 ```
 
-The key command is the port forwarding command i.e. the `-L 8787:spartan-bm004:45737` part of the `ssh` command. This will create a tunnel from your local machine to the compute node running RStudio. You can then access RStudio by pointing your web browser to `http://localhost:8787`.
+The key part is the port forwarding command i.e. the `-L 8787:spartan-bm004:45737` part of the `ssh` command. This will create a tunnel from your local machine to the compute node running RStudio. You can then access RStudio by pointing your web browser to http://localhost:8787.
 
 ## Conclusion
 
-In this post I've detailed how to run RStudio on the Unimelb Spartan HPC. This allows you to perform interactive analysis with large compute resources. The process is similar to running RStudio on other HPCs, but there are some differences in the setup and submission process. If you have any questions or comments please feel free to reach out.
+In this post, I’ve detailed how to run RStudio on the Unimelb Spartan HPC. This setup lets you perform interactive analysis with large compute resources. The process is similar on other HPCs, with just a few site-specific tweaks. If you have any questions or comments, please feel free to reach out.
