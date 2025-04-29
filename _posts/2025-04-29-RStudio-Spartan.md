@@ -24,7 +24,7 @@ The Unimelb Spartan HPC uses [Apptainer](https://dashboard.hpc.unimelb.edu.au/so
 
 ## Setup (once)
 
-Start by sshing to the remote server (hint use VScode remote extension) and create a containers directory.
+Start by `ssh`ing to the remote server (hint use VScode remote extension) and create a containers directory.
 
 ```bash
 mkdir -p $HOME/containers/rstudio/
@@ -100,6 +100,8 @@ When done using RStudio Server, terminate the job by:
 
       scancel -f 8936310
 ```
+
+The key command is the port forwarding command i.e. the `-L 8787:spartan-bm004:45737` part of the `ssh` command. This will create a tunnel from your local machine to the compute node running RStudio. You can then access RStudio by pointing your web browser to `http://localhost:8787`.
 
 ## Conclusion
 
