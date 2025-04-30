@@ -31,6 +31,10 @@ The Unimelb Spartan HPC uses [Apptainer](https://dashboard.hpc.unimelb.edu.au/so
 2. Download the latest tidyverse container in Singularity image format (`.sif`) to your new directory:
 
     ```bash
+    module purge
+    module load GCCcore/11.3.0
+    module load Apptainer/1.1.8
+
     singularity pull \
       $HOME/containers/rstudio/tidyverse_latest.sif \
       docker://rocker/tidyverse:latest
