@@ -43,10 +43,10 @@ The Unimelb Spartan HPC uses [Apptainer](https://dashboard.hpc.unimelb.edu.au/so
 3. Create the RStudio “job” script and make it executable:
 
     ```bash
-    wget -O $HOME/containers/rstudio/rstudio.spartan.job \
+    wget -O $HOME/containers/rstudio/rstudio.job \
       https://gist.githubusercontent.com/Wytamma/4d5a8f763aa602deaee0bfbd64d1a3ae/raw/e08527234b5d13c3a6bf65c7f1c3aa72612d36ce/rstudio.spartan.job
 
-    chmod u+x $HOME/containers/rstudio/rstudio.spartan.job
+    chmod u+x $HOME/containers/rstudio/rstudio.job
     ```
 
 4. Download the submission wrapper into your \$PATH (e.g. `\$HOME/.local/bin/rstudio`) and make it executable:
