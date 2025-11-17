@@ -45,7 +45,7 @@ cat > $CONTAINER_DIR/bin/phastest << 'EOF'
 set -e
 set -o pipefail
 
-output_dir="phastest-results"
+output_dir="./phastest-results"
 
 # Parse command line arguments.
 while getopts ":i:m:a:s:o:-:" opt; do
@@ -122,10 +122,10 @@ else
     job_id="$accession"
 fi
 
-mkdir -p $PWD/$output_dir
-rm -rf $PWD/$output_dir/$job_id
-mv $PHASTEST/phastest-app-docker/JOBS/$job_id $PWD/$output_dir/$job_id
-echo "Results moved to $PWD/$output_dir/$job_id"
+mkdir -p $output_dir
+rm -rf $output_dir/$job_id
+mv $PHASTEST/phastest-app-docker/JOBS/$job_id $output_dir/$job_id
+echo "Results moved to $output_dir/$job_id"
 EOF
 ```
 
