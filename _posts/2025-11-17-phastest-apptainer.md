@@ -123,6 +123,7 @@ else
 fi
 
 mkdir -p $PWD/$output_dir
+rm -rf $PWD/$output_dir/$job_id
 mv $PHASTEST/phastest-app-docker/JOBS/$job_id $PWD/$output_dir/$job_id
 echo "Results moved to $PWD/$output_dir/$job_id"
 EOF
