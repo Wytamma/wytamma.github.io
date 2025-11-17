@@ -1,5 +1,5 @@
 ---
-title: "Installing "
+title: "Installing and running Phastest with Apptainer on HPC"
 published: true
 categories:
   - Blog
@@ -38,7 +38,7 @@ unzip $CONTAINER_DIR/docker-database.zip "DB/*" -d $CONTAINER_DIR/phastest/phast
 rm $CONTAINER_DIR/docker-database.zip
 ```
 
-Create wrapper script to run Phastest using Apptainer:
+Create wrapper script to run Phastest using Apptainer and copy results to current working directory:
 ```bash
 cat > $CONTAINER_DIR/bin/phastest << 'EOF'
 #! /bin/sh
