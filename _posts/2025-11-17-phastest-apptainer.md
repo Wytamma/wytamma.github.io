@@ -139,6 +139,7 @@ You can now run Phastest using the `phastest` command. For example, to analyse a
 ```bash
 phastest -i genbank -a NC_000907.1 --yes --phage-only
 ```
+```
 Running PHASTEST
 Job ID: NC_000907.1
 Available space of /phastest-app/JOBS is 20G
