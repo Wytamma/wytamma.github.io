@@ -96,6 +96,17 @@ done
 
 PHASTEST=$HOME/containers/phastest/
 
+# if sequence is provided link it to the input directory
+if [[ -n "$sequence" ]]; then
+    # check it exists
+    if [[ ! -f "$sequence" ]]; then
+        echo "Error: sequence file $sequence does not exist." >&2
+        exit 1
+    fi
+    mkdir -p $PHASTEST/phastest_inputs/
+    ln -sf $sequence $PHASTEST/phastest_inputs/$(basename $sequence)
+fi
+
 apptainer run \
   --hostname slurmctld \
   --bind $PHASTEST/phastest-app-docker/sub_programs/ncbi-blast-2.3.0+:/BLAST+ \
@@ -120,6 +131,11 @@ if [[ $input_type != "genbank" ]]; then
     job_id="${filename%.*}"
 else 
     job_id="$accession"
+fi
+
+# remove input sequence link if it was created
+if [[ -n "$sequence" ]]; then
+    rm $PHASTEST/phastest_inputs/$(basename $sequence)
 fi
 
 mkdir -p $PWD/$output_dir
